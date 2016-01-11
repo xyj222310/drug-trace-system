@@ -4,6 +4,6 @@ import org.hibernate.Query;
 
 
 public interface LabelDAO {
-	public Query queryfromdb(String table,int id);
+	public Query queryfromdb(String table,Double tagid);
 	public Query queryAll(String table);
 }

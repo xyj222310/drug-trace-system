@@ -11,7 +11,7 @@
             <generator class="native"></generator>
         </id>
         <many-to-one name="tags" class="com.myproject.Model.Tags" fetch="select">
-            <column name="tagid" unique="true" />
+            <column name="tagid" precision="22" scale="0" unique="true" />
         </many-to-one>
         <property name="factoryname" type="java.lang.String">
             <column name="factoryname" />

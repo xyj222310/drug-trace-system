@@ -12,18 +12,18 @@ public class ServerAccessImpl implements ServerAccess{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public String dopost(String table) throws Exception{
+	public String dopost(String table,Double tagid ) throws Exception{
 		HttpURLConnection httpConn = null;
-		String path = "http://localhost:8080/RFIDweb/tag?table="+table+"&tagid=0";
+		String path = "http://192.168.155.1:8080/RFIDweb/tag?table="+table+"&tagid="+tagid;
 		BufferedReader in=null;
 		try {
             URL url=new URL(path);
-            httpConn=(HttpURLConnection)url.openConnection();
+            httpConn=(HttpURLConnection)url	.openConnection();
             //∂¡»°œÏ”¶
             if(httpConn.getResponseCode()==HttpURLConnection.HTTP_OK){
                 StringBuffer content=new StringBuffer();
                 String tempStr="";
-                in=new BufferedReader(new InputStreamReader(httpConn.getInputStream()));
+                in=new BufferedReader(new InputStreamReader(httpConn.getInputStream(),"gb2312"));
                 while((tempStr=in.readLine())!=null){
                     content.append(tempStr);
                 }

@@ -37,18 +37,25 @@
     		<td style="color: gray">Medicine's ID</td>
     		<td style="color: gray">Medicine's Name</td>
     		<br>
-   			<s:iterator value="tags">
+			<s:iterator value="tags">
 	    		<tr>
-	    			<a href="details.action">
-			    		<td text="1" >
-							<s:property value="tagsid"/>
-						</td>
-						<td text="2" >
-							<s:property value="medicinename"/>
-						</td>
-					</a>
+		    		<td text="1" >
+						<s:property value="tagsid"/>
+					</td>
+					<td text="2" >
+						<s:property value="medicinename"/>
+					</td>
+					<td text="2" >
+						<a href="browse_factory.action">点我显示工厂</a>
+					</td>
+					<td text="2" >
+						<a href="browse_store.action">显示商店</a>
+					</td>
+					<td text="2" >
+						<a href="browse_transport.action">运输公司</a>
+					</td>
 				<tr>
-	    	</s:iterator>
+    		</s:iterator>
    		</tr>
     </table>
     

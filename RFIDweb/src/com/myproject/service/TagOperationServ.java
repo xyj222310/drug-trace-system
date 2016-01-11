@@ -43,19 +43,23 @@ public class TagOperationServ extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try{
-			JSONObject jso = new JSONObject();
+//			JSONObject jso = new JSONObject();
 			LabelManager lm = new LabelManager();
 			String table = request.getParameter("table");
-			int tagid = Integer.valueOf(request.getParameter("tagid"));
-			if(0 == tagid){
-				 JSONArray jArray = lm.sendToWeb(table);
+			Double tagid = Double.valueOf(request.getParameter("tagid"));
+//			if(0 == tagid){
+			JSONArray jArray = lm.sendToWeb(table,tagid);
 				 response.setCharacterEncoding("gb2312");
-				 response.getWriter().write(jArray.toString());
-			}else{
-				jso = lm.sendToAPP(table, tagid);
-				response.setCharacterEncoding("gb2312");
-				response.getWriter().write(jso.toString());
+//			}else{
+//				jso = lm.sendToAPP(table, tagid);
+//				response.setCharacterEncoding("gb2312");
+			if(0==tagid){
+				response.getWriter().write(jArray.toString());
 			}
+			else{
+				response.getWriter().write(jArray.getJSONObject(0).toString());
+			}
+//			}
 			
 		}catch(Exception e ){
 			e.printStackTrace();

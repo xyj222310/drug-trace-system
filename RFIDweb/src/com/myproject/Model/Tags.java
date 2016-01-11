@@ -3,76 +3,87 @@ package com.myproject.Model;
 import java.util.HashSet;
 import java.util.Set;
 
+
 /**
  * Tags entity. @author MyEclipse Persistence Tools
  */
 
-public class Tags implements java.io.Serializable {
+public class Tags  implements java.io.Serializable {
 
-	// Fields
 
-	private Integer tagsid;
-	private String medicinename;
-	private Set transports = new HashSet(0);
-	private Set factories = new HashSet(0);
-	private Set stores = new HashSet(0);
+    // Fields    
 
-	// Constructors
+     private Double tagsid;
+     private String medicinename;
+     private Set transports = new HashSet(0);
+     private Set factories = new HashSet(0);
+     private Set stores = new HashSet(0);
 
-	/** default constructor 
-	 * @param string 
-	 * @param tagsid */
-	public Tags() {
-	}
 
-	/** full constructor */
-	public Tags(String medicinename, Set transports, Set factories, Set stores) {
-		this.medicinename = medicinename;
-		this.transports = transports;
-		this.factories = factories;
-		this.stores = stores;
-	}
+    // Constructors
 
-	// Property accessors
+    /** default constructor */
+    public Tags() {
+    }
 
-	public Integer getTagsid() {
-		return this.tagsid;
-	}
+    
+    /** full constructor */
+    public Tags(String medicinename, Set transports, Set factories, Set stores) {
+        this.medicinename = medicinename;
+        this.transports = transports;
+        this.factories = factories;
+        this.stores = stores;
+    }
 
-	public void setTagsid(Integer tagsid) {
-		this.tagsid = tagsid;
-	}
+   
+    // Property accessors
 
-	public String getMedicinename() {
-		return this.medicinename;
-	}
+    public Double getTagsid() {
+        return this.tagsid;
+    }
+    
+    public void setTagsid(Double tagsid) {
+        this.tagsid = tagsid;
+    }
 
-	public void setMedicinename(String medicinename) {
-		this.medicinename = medicinename;
-	}
+    public String getMedicinename() {
+        return this.medicinename;
+    }
+    
+    public void setMedicinename(String medicinename) {
+        this.medicinename = medicinename;
+    }
 
-	public Set getTransports() {
-		return this.transports;
-	}
+    public Set getTransports() {
+        return this.transports;
+    }
+    
+    public void setTransports(Set transports) {
+        this.transports = transports;
+    }
 
-	public void setTransports(Set transports) {
-		this.transports = transports;
-	}
+    public Set getFactories() {
+        return this.factories;
+    }
+    
+    public void setFactories(Set factories) {
+        this.factories = factories;
+    }
 
-	public Set getFactories() {
-		return this.factories;
-	}
+    public Set getStores() {
+        return this.stores;
+    }
+    
+    public void setStores(Set stores) {
+        this.stores = stores;
+    }
+   
 
-	public void setFactories(Set factories) {
-		this.factories = factories;
-	}
 
-	public Set getStores() {
-		return this.stores;
-	}
 
-	public void setStores(Set stores) {
-		this.stores = stores;
-	}
+
+
+
+
 
 }

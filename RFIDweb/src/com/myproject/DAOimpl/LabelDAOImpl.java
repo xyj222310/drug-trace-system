@@ -12,9 +12,9 @@ import com.myproject.Model.Store;
 import com.myproject.Model.Tags;
 import com.myproject.hibernate.HibernateSessionFactory;
 
-public class LabelDAOImpl implements LabelDAO {
+public  class LabelDAOImpl implements LabelDAO {
 
-	public Query  queryfromdb(String table,int id) {
+	public Query  queryfromdb(String table,Double id) {
 		// TODO Auto-generated method stub
 		SessionFactory sf = HibernateSessionFactory.getSessionFactory();
     	Session s =sf.openSession();

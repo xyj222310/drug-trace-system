@@ -31,7 +31,11 @@
 		<input type="button" id="send" value="发送" onclick="window.location.href='FirstPage.jsp'" />
 	    <br><br><br>
 	    <br><br>
-	    <input type="button" id="browse" value="浏览所有的药品信息" onclick="window.location.href='browse.action'">
+	    <input type="button" id="browsetags" value="浏览药品信息" onclick="window.location.href='browse_tag.action'">
+		 <input type="button" id="browsefactory" value="浏览制药厂信息" onclick="window.location.href='browse_factory.action'">
+		 <input type="button" id="browsestore" value="浏览商店信息" onclick="window.location.href='browse_store.action'">
+		  <input type="button" id="browsetransport" value="浏览运输公司信息" onclick="window.location.href='browse_transport.action'">
+		
 		<table border="1" align = "center">
     		<tr>
 	    		<td >此处无银三百两</td>

@@ -20,13 +20,17 @@ public class LabelManager {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public JSONArray sendToWeb(String table){
+	public JSONArray sendToWeb(String table,Double tagid){
 		JSONArray jArray = new JSONArray();
 		LabelDAO db = new LabelDAOImpl();
 		try{
 			switch (table) {
 			case "factory":
-				List fac= db.queryAll("factory").list();
+				List fac;
+				if(tagid==0){
+					fac= db.queryAll("factory").list();
+				}
+				else fac= db.queryfromdb("factory",tagid).list();
 				for(int i=0;i<fac.size();i++){
 					JSONObject jso= new JSONObject();
 					jso.put("tagid", ((Factory) fac.get(i)).getTags().getTagsid());
@@ -39,7 +43,11 @@ public class LabelManager {
 				}
 				break;
 			case "store":
-				List store= db.queryAll("store").list();
+				List store;
+				if(tagid==0){
+					store= db.queryAll("store").list();
+				}
+				else store= db.queryfromdb("store",tagid).list();
 				for(int i=0;i<store.size();i++){
 					JSONObject jso= new JSONObject();
 					jso.put("tagid", ((Store) store.get(i)).getTags().getTagsid());
@@ -51,7 +59,11 @@ public class LabelManager {
 				}
 				break;
 			case "tag":
-				List tag= db.queryAll("tag").list();
+				List tag;
+				if(tagid==0){
+					tag= db.queryAll("tag").list();
+				}
+				else tag= db.queryfromdb("tag",tagid).list();
 				for(int i=0;i<tag.size();i++){
 					JSONObject jso= new JSONObject();
 					jso.put("tagid", ((Tags) tag.get(i)).getTagsid());
@@ -60,7 +72,11 @@ public class LabelManager {
 				}
 				break;
 			case "transport":
-				List trans= db.queryAll("transport").list();
+				List trans;
+				if(tagid==0){
+					trans= db.queryAll("transport").list();
+				}
+				else trans= db.queryfromdb("transport",tagid).list();
 				for(int i=0;i<trans.size();i++){
 					JSONObject jso= new JSONObject();
 					jso.put("tagid", ((Transport) trans.get(i)).getTags().getTagsid());
@@ -81,63 +97,10 @@ public class LabelManager {
 		}
 		return jArray;
 	}
-	public JSONObject sendToAPP(String table,int tagid){
-		JSONObject jso = new JSONObject();
-		try{
-			LabelDAO db = new LabelDAOImpl();
-			switch (table) {
-			case "factory":
-				List fac= db.queryfromdb("factory",tagid).list();
-				for(int i=0;i<fac.size();i++){
-					jso.put("tagid", ((Factory) fac.get(i)).getTags().getTagsid());
-					jso.put("factoryname", ((Factory) fac.get(i)).getFactoryname());
-					jso.put("leavestatus", ((Factory) fac.get(i)).getLeaveFactoryStatus());
-					jso.put("outputtime", ((Factory) fac.get(i)).getOutputtime());
-					jso.put("line1status", ((Factory) fac.get(i)).getProductLine1Status());
-					jso.put("line2status", ((Factory) fac.get(i)).getProductLine2Stauts());
-				}
-				break;
-			case "store":
-				List store= db.queryfromdb("store",tagid).list();
-				for(int i=0;i<store.size();i++){
-					jso.put("tagid", ((Store) store.get(i)).getTags().getTagsid());
-					jso.put("storename", ((Store) store.get(i)).getStorename());
-					jso.put("stocktime", ((Store) store.get(i)).getStocktime());
-					jso.put("soldtime", ((Store) store.get(i)).getSoldtime());
-					jso.put("storestatus", ((Store) store.get(i)).getStorestatus());
-				}
-				break;
-			case "tag":
-				List tag= db.queryfromdb("tag",tagid).list();
-				for(int i=0;i<tag.size();i++){
-					jso.put("tagid", ((Tags) tag.get(i)).getTagsid());
-					jso.put("medicine", ((Tags) tag.get(i)).getMedicinename());
-				}
-				break;
-			case "transport":
-				List trans= db.queryfromdb("transport",tagid).list();
-				for(int i=0;i<trans.size();i++){
-					jso.put("tagid", ((Transport) trans.get(i)).getTags().getTagsid());
-					jso.put("transportname", ((Transport) trans.get(i)).getTansportname());
-					jso.put("starttime", ((Transport) trans.get(i)).getStarttime());
-					jso.put("endtime", ((Transport) trans.get(i)).getEndtime());
-					jso.put("transportstatus", ((Transport) trans.get(i)).getTransportstatus());
-				}
-				break;
-			default:
-				break;
-			}
-		}catch(Exception e ){
-			e.printStackTrace();
-		}
-		return jso;
-	}
-	
-	
-	public JSONArray dopost(String table){
+	public JSONArray dopost(String table,Double tagid){
 		ServerAccess serv = new ServerAccessImpl();
 		try {
-			String s = serv.dopost(table);
+			String s = serv.dopost(table,tagid);
 //			JSONObject js = new JSONObject();
 			JSONArray ja = new JSONArray(s);
 			return ja;

@@ -2,15 +2,25 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="com" namespace="/" extends="struts-default">
-		<action name="browse"
-			class="com.myproject.action.BrowseAction" >
+		<action name="browse_tag"
+			class="com.myproject.action.BrowseTagAction" >
 			<result name="fail">/Fail.jsp</result>
-			<result name="success">/browse.jsp</result>		
+			<result name="success">/browse_tag.jsp</result>		
 		</action>	
-		<action name="details"
-			class="com.myproject.action.DetailsAction" >
+		<action name="browse_factory"
+			class="com.myproject.action.BrowseFacAction" >
 			<result name="fail">/Fail.jsp</result>
-			<result name="success">/browse_details.jsp</result>		
+			<result name="success">/browse_factory.jsp</result>		
+		</action>
+		<action name="browse_store"
+			class="com.myproject.action.BrowseStoAction" >
+			<result name="fail">/Fail.jsp</result>
+			<result name="success">/browse_store.jsp</result>		
+		</action>
+		<action name="browse_transport"
+			class="com.myproject.action.BrowseTransAction" >
+			<result name="fail">/Fail.jsp</result>
+			<result name="success">/browse_transport.jsp</result>		
 		</action>
 	</package>
 </struts>    
