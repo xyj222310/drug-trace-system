@@ -1,5 +1,10 @@
 package com.myproject.serverAcess.impl;
 
+
+/*
+ * web与服务其接口类：指定url 和  参数。使用BufferedReader 读出数据。
+ *  
+ */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,7 +19,7 @@ public class ServerAccessImpl implements ServerAccess{
 	}
 	public String dopost(String table,Double tagid ) throws Exception{
 		HttpURLConnection httpConn = null;
-		String path = "http://192.168.155.1:8080/RFIDweb/tag?table="+table+"&tagid="+tagid;
+		String path = "http://192.168.191.1:8080/RFIDserver/tag?table="+table+"&tagid="+tagid;
 		BufferedReader in=null;
 		try {
             URL url=new URL(path);

@@ -13,7 +13,10 @@ import com.myproject.Model.Tags;
 import com.myproject.Model.Transport;
 import com.myproject.serverAcess.ServerAccess;
 import com.myproject.serverAcess.impl.ServerAccessImpl;
-
+/*
+ * 药品管理类：  作为服务器：主要方法是 一个响应请求的处理。即查询发送指定数据格式 的数据 给web或者app
+ * 作为 web程序，这个类是用dopost（）方法实现向服务器请求数据。
+ */
 
 public class LabelManager {
 	public LabelManager() {

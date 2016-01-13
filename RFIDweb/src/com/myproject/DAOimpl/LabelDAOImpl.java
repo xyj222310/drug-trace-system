@@ -1,5 +1,8 @@
 package com.myproject.DAOimpl;
 
+/*
+ * 数据库操作类，属于ssh架构中间的DAO层。大家都懂的！！！
+ */
 import com.myproject.Model.Transport;
 
 import org.hibernate.Query;
