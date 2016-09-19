@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.rfid.MainActivity"
+    android:background="@drawable/pill" >
+
+    <EditText
+        android:id="@+id/table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:hint="输入厂商如factory,商店如store..."
+        android:ems="15" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/table"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/table"
+        android:hint="输入查询的ID号"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:text=""
+        android:textSize="17sp"
+        android:textColor="#808099" 
+        android:clickable="true"
+        android:onClick="broswer"
+        
+        />
+
+    <TextView
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tag"
+        android:layout_centerHorizontal="true"
+        android:text="search"
+        android:textColor="#808099"
+        android:textSize="40sp" 
+        android:onClick="search"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tag"
+        android:layout_below="@+id/search"
+        android:text="查询内容如下:"
+        android:textColor="#808088"
+        android:textSize="20sp" />
+
+</RelativeLayout>
